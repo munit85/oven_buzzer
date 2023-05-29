@@ -1,0 +1,20 @@
+alias: Oven Preheat Ready
+description: >-
+  Attempting to use esp home to detect oven buzzer on preheat. then notify
+  iphone
+trigger:
+  - platform: state
+    entity_id:
+      - binary_sensor.esp_oven_oven_preheated
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 5
+condition: []
+action:
+  - device_id: 1f18a8ef0f6a7120b4ec325b7b339d2c
+    domain: mobile_app
+    type: notify
+    message: Oven is Preheated
+    title: Oven Ready
+mode: single
